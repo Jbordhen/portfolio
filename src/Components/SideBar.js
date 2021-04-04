@@ -13,6 +13,7 @@ const Sider = styled.div`
         width: 100%;
     }
 `
+
 const Div = styled.div`
     display: flex;
     position: relative;
@@ -21,22 +22,70 @@ const Div = styled.div`
     flex-direction: column;
     text-align: center;
 `
+
+const Button = styled.button`
+    border: none;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-weight: bold;
+    margin-bottom: 25%;
+    &:hover {
+        background-color: inherit;
+    }
+`
+
+const Links = ({ className, children, to }) => (
+    <Link className={className} to={to}>
+        {children}
+    </Link>
+)
+
+const StyledLink = styled(Links)`
+    text-decoration: none;
+    color: whiteSmoke;
+    font-weight: bold;
+    margin-bottom: 10%;
+    &:hover {
+        color: black;
+    }
+`
+
+const Icon = ({ className, to }) => (
+    <i className={className} onClick={() => window.location.replace(to)}></i>
+)
+
+const StyledIcon = styled(Icon)`
+    background-color: white;
+    padding: 5%;
+    border-radius: 100%;
+    color: #54b689;
+`
+
+const LinedIcon = ({ className }) => (
+    <i
+        className={className}
+        css={`
+            margin-right: 5%;
+        `}></i>
+)
+
 const SideBar = () => {
     return (
         <Sider>
-            <h1
+            <h3
                 css={`
                     text-align: center;
                     color: whiteSmoke;
-                `}>
+                `}
+                onClick={() => window.location.replace('/')}>
                 Joy Bordhen
-            </h1>
+            </h3>
             <Div>
                 <img
                     src='myPic.png'
                     alt=''
                     css={`
-                        width: 50%;
+                        width: 60%;
                         border-radius: 100%;
                         margin-left: auto;
                         margin-right: auto;
@@ -57,134 +106,58 @@ const SideBar = () => {
                         border-bottom-style: solid;
                         border-bottom-color: rgba(255, 255, 255, 0.08);
                     `}>
-                    <i
+                    <StyledIcon
                         className='fab fa-github-alt'
-                        css={`
-                            background-color: white;
-                            padding: 5%;
-                            border-radius: 100%;
-                        `}
-                        onClick={() =>
-                            window.location.replace(
-                                'https://github.com/Jbordhen/'
-                            )
-                        }></i>
-                    <i
+                        to='https://github.com/Jbordhen/'></StyledIcon>
+                    <StyledIcon
                         className='fab fa-linkedin-in'
-                        css={`
-                            background-color: white;
-                            padding: 5%;
-                            border-radius: 100%;
-                        `}
-                        onClick={() =>
-                            window.location.replace(
-                                'https://www.linkedin.com/in/joy-bordhen/'
-                            )
-                        }></i>
-                    <i
+                        to='https://www.linkedin.com/in/joy-bordhen/'></StyledIcon>
+                    <StyledIcon
                         className='fab fa-facebook-f'
-                        css={`
-                            background-color: white;
-                            padding: 5%;
-                            border-radius: 100%;
-                        `}
-                        onClick={() =>
-                            window.location.replace(
-                                'https://facebook.com/Jbordhen.jb/'
-                            )
-                        }></i>
-                    <i
+                        to='https://facebook.com/Jbordhen.jb/'></StyledIcon>
+                    <StyledIcon
                         className='fab fa-stack-overflow'
-                        css={`
-                            background-color: white;
-                            padding: 5%;
-                            border-radius: 100%;
-                        `}></i>
-                    <i
+                        to='/'></StyledIcon>
+                    <StyledIcon
                         className='fab fa-twitter'
-                        css={`
-                            background-color: white;
-                            padding: 5%;
-                            border-radius: 100%;
-                        `}
-                        onClick={() =>
-                            window.location.replace(
-                                'https://twitter.com/Joy_bordhen'
-                            )
-                        }></i>
+                        to='https://twitter.com/Joy_bordhen'></StyledIcon>
                 </Div>
                 <Div
                     css={`
                         margin-top: 20%;
                         margin-bottom: 30%;
-                        padding: 10%;
+                        padding: 0%;
                         bottom: 0;
                         border-bottom-style: solid;
                         border-bottom-color: rgba(255, 255, 255, 0.08);
                     `}>
-                    <Link
-                        to='/'
-                        css={`
-                            text-decoration: none;
-                            color: whiteSmoke;
-                            font-weight: bold;
-                            margin-bottom: 10%;
-                        `}>
+                    <StyledLink to='/'>
+                        <LinedIcon className='far fa-user' />
                         About Me
-                    </Link>
-                    <Link
-                        to='/'
-                        css={`
-                            text-decoration: none;
-                            color: whiteSmoke;
-                            font-weight: bold;
-                            margin-bottom: 10%;
-                        `}>
+                    </StyledLink>
+                    <StyledLink to='/portfolio'>
+                        <LinedIcon className='fas fa-code' />
                         Portfolio
-                    </Link>
-                    <Link
-                        to='/'
-                        css={`
-                            text-decoration: none;
-                            color: whiteSmoke;
-                            font-weight: bold;
-                            margin-bottom: 10%;
-                        `}>
+                    </StyledLink>
+                    <StyledLink to='/services_policies'>
+                        <LinedIcon className='fas fa-briefcase' />
                         Services & Policy
-                    </Link>
-                    <Link
-                        to='/'
-                        css={`
-                            text-decoration: none;
-                            color: whiteSmoke;
-                            font-weight: bold;
-                            margin-bottom: 10%;
-                        `}>
+                    </StyledLink>
+                    <StyledLink to='/resume'>
+                        <LinedIcon className='far fa-file' />
                         Resume
-                    </Link>
-                    <Link
-                        to='/'
-                        css={`
-                            text-decoration: none;
-                            color: whiteSmoke;
-                            font-weight: bold;
-                            margin-bottom: 10%;
-                        `}>
+                    </StyledLink>
+                    <StyledLink to='/blog'>
+                        <LinedIcon className='fab fa-blogger' />
                         Blog
-                    </Link>
-                    <Link
-                        to='/'
-                        css={`
-                            text-decoration: none;
-                            color: whiteSmoke;
-                            font-weight: bold;
-                            margin-bottom: 10%;
-                        `}>
+                    </StyledLink>
+                    <StyledLink to='/contact'>
+                        <LinedIcon className='far fa-envelope' />
                         Contact
-                    </Link>
+                    </StyledLink>
                 </Div>
                 <Div>
-                    <button>Dark Mode</button>
+                    <Button>Dark Mode</Button>
                 </Div>
             </Div>
         </Sider>
