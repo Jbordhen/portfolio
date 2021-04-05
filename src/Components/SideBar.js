@@ -9,8 +9,9 @@ const Sider = styled.div`
     justify-content: center;
     align-content: center;
     min-height: 100%;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         width: 100%;
+        position: relative;
     }
 `
 
@@ -34,13 +35,7 @@ const Button = styled.button`
     }
 `
 
-const Links = ({ className, children, to }) => (
-    <Link className={className} to={to}>
-        {children}
-    </Link>
-)
-
-const StyledLink = styled(Links)`
+const StyledLink = styled(Link)`
     text-decoration: none;
     color: whiteSmoke;
     font-weight: bold;
@@ -76,6 +71,10 @@ const SideBar = () => {
                 css={`
                     text-align: center;
                     color: whiteSmoke;
+                    @media (max-width: 1024px) {
+                        margin-top: 0;
+                        padding-top: 2%;
+                    }
                 `}
                 onClick={() => window.location.replace('/')}>
                 Joy Bordhen
@@ -104,7 +103,7 @@ const SideBar = () => {
                         padding-bottom: 10%;
                         padding-top: 10%;
                         border-bottom-style: solid;
-                        border-bottom-color: rgba(255, 255, 255, 0.08);
+                        border-bottom-color: rgba(0, 0, 0, 0.1);
                     `}>
                     <StyledIcon
                         className='fab fa-github-alt'
@@ -129,7 +128,7 @@ const SideBar = () => {
                         padding: 0%;
                         bottom: 0;
                         border-bottom-style: solid;
-                        border-bottom-color: rgba(255, 255, 255, 0.08);
+                        border-bottom-color: rgba(0, 0, 0, 0.1);
                     `}>
                     <StyledLink to='/'>
                         <LinedIcon className='far fa-user' />
