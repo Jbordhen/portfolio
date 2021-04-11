@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 
 const Sider = styled.div`
     background-color: #54b689;
-    position: absolute;
+    position: fixed;
     width: 15%;
     justify-content: center;
     align-content: center;
@@ -54,6 +54,10 @@ const StyledIcon = styled(Icon)`
     padding: 5%;
     border-radius: 100%;
     color: #54b689;
+    &:hover {
+        background-color: #54b689;
+        color: #fff;
+    }
 `
 
 const LinedIcon = ({ className }) => (
@@ -67,27 +71,36 @@ const LinedIcon = ({ className }) => (
 const SideBar = () => {
     return (
         <Sider>
-            <h3
+            <Link
+                to='/'
                 css={`
-                    text-align: center;
-                    color: whiteSmoke;
-                    @media (max-width: 1024px) {
-                        margin-top: 0;
-                        padding-top: 2%;
-                    }
-                `}
-                onClick={() => window.location.replace('/')}>
-                Joy Bordhen
-            </h3>
+                    text-decoration: none;
+                `}>
+                <h3
+                    css={`
+                        text-align: center;
+                        color: whiteSmoke;
+                        @media (max-width: 1024px) {
+                            margin-top: 0;
+                            padding-top: 2%;
+                        }
+                    `}>
+                    Joy Bordhen
+                </h3>
+            </Link>
             <Div>
                 <img
-                    src='myPic.png'
+                    src='profile.png'
                     alt=''
                     css={`
                         width: 60%;
                         border-radius: 100%;
                         margin-left: auto;
                         margin-right: auto;
+                        background: inherit;
+                        &:hover {
+                            box-shadow: 2px 2px 2px 1px rgba(51, 51, 51, 0.5);
+                        }
                     `}></img>
                 <p
                     css={`
@@ -99,11 +112,12 @@ const SideBar = () => {
                 <Div
                     css={`
                         flex-direction: row;
-                        justify-content: space-around;
+                        justify-content: space-between;
                         padding-bottom: 10%;
                         padding-top: 10%;
                         border-bottom-style: solid;
                         border-bottom-color: rgba(0, 0, 0, 0.1);
+                        margin: 0;
                     `}>
                     <StyledIcon
                         className='fab fa-github-alt'
